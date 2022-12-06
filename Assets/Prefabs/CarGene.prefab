@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2121750345}
   - component: {fileID: 2121750344}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -82,13 +82,41 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 100000, guid: 0da0a37a38c2106489f2e4d6f7266e43, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 100002, guid: 0da0a37a38c2106489f2e4d6f7266e43, type: 3}
       propertyPath: m_Name
       value: CarGene
       objectReference: {fileID: 0}
     - target: {fileID: 100002, guid: 0da0a37a38c2106489f2e4d6f7266e43, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 0da0a37a38c2106489f2e4d6f7266e43, type: 3}
       propertyPath: m_TagString
       value: Car
+      objectReference: {fileID: 0}
+    - target: {fileID: 100004, guid: 0da0a37a38c2106489f2e4d6f7266e43, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 100006, guid: 0da0a37a38c2106489f2e4d6f7266e43, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 100008, guid: 0da0a37a38c2106489f2e4d6f7266e43, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 100010, guid: 0da0a37a38c2106489f2e4d6f7266e43, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 100012, guid: 0da0a37a38c2106489f2e4d6f7266e43, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 0da0a37a38c2106489f2e4d6f7266e43, type: 3}
       propertyPath: m_RootOrder
@@ -167,7 +195,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 112
+  m_Constraints: 116
   m_CollisionDetection: 0
 --- !u!65 &1153008960
 BoxCollider:
@@ -194,12 +222,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a2b3d6265e39fa45a02b1cce306535e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
+  speed: 20
   rotation: {x: 0, y: 45, z: 0}
   layerMask:
     serializedVersion: 2
     m_Bits: 64
+  lastBestIndex: 0
   actions: 
+  isDead: 1
+  distance: 0
 --- !u!4 &1088481293570946218 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400002, guid: 0da0a37a38c2106489f2e4d6f7266e43, type: 3}

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CarScript : MonoBehaviour
 {
-    public float speed = 5.0f;
+    public float speed = 50.0f;
     public Vector3 rotation;
     public LayerMask layerMask;
     Rigidbody carRigidbody;
@@ -12,7 +12,7 @@ public class CarScript : MonoBehaviour
     private int index = 0;
     private float compteur = 0;
 
-
+    public int lastBestIndex = 0;
 
     /*
     Liste des actions (representees par des int) que prendra la voiture dans l'ordre.
@@ -26,7 +26,7 @@ public class CarScript : MonoBehaviour
      */
     public List<int> actions = new List<int>();
 
-    bool isDead = false;
+    public bool isDead = true;
     public float distance = 0.0f;
     Vector3 previousPos;
 
@@ -35,16 +35,27 @@ public class CarScript : MonoBehaviour
     void Start()
     {
         carRigidbody = this.GetComponent<Rigidbody>();
+
+        Physics.IgnoreLayerCollision(7, 7);
+    }
+
+
+    public int GetActionIndex()
+    {
+        return index;
     }
 
     public void InitializeRandomActions(int count)
     {
-        for(int i = 0; i < count; i++)
+        actions.Clear();
+        for (int i = 0; i < count; i++)
         {
-            actions.Add(Random.Range(0, 4));
+            actions.Add(Random.Range(0, 5));
         }
     }
 
+
+    //Used to calc the distance travelled in a frame
     public void InitializePos()
     {
         previousPos = this.transform.position;
@@ -66,7 +77,7 @@ public class CarScript : MonoBehaviour
 
             if (index >= actions.Count)
             {
-                index = 0;
+                actions.Add(Random.Range(0, 5));
             }
         }
         
@@ -121,7 +132,7 @@ public class CarScript : MonoBehaviour
         {
             this.isDead = true;
             NotifyDeath();
-            Debug.Log(distance);
+            //Debug.Log(distance);
         }
 
         if (collision.gameObject.tag == "Car")
